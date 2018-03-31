@@ -1,0 +1,7 @@
+<KeyValueMapOperations mapIdentifier="oauth-http-bin" async="true" continueOnError="false"
+enabled="true" xmlns="http://www.sap.com/apimgmt">
+	<Get assignTo="ro.spet.specs">
+		<Key><Parameter>specs</Parameter></Key>
+	</Get>
+	<Scope>environment</Scope>
+</KeyValueMapOperations>

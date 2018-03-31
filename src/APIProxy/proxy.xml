@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy>
+    <name>oauth-http-bin</name>
+    <title>oauth-http-bin</title>
+    <description>HTTP Bin: Protected by OAuth</description>
+    <service_code>REST</service_code>
+    <proxyEndPoints>
+        <proxyEndPoint>
+            <proxyEndPointName>default</proxyEndPointName>
+        </proxyEndPoint>
+    </proxyEndPoints>
+    <targetEndPoints>
+        <targetEndPoint>default</targetEndPoint>
+    </targetEndPoints>
+    <policies>
+        <policy type="Javascript">checkScopes</policy>
+        <policy type="ExtractVariable">extractToken</policy>
+        <policy type="KeyValueMapOperations">readSpecs</policy>
+        <policy type="RaiseFault">raiseFault</policy>
+    </policies>
+    <fileResources>
+        <fileResource type="js">checkScopes</fileResource>
+    </fileResources>
+</APIProxy>

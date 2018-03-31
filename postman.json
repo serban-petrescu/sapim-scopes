@@ -1,0 +1,417 @@
+{
+	"info": {
+		"_postman_id": "7bbc2eb2-2fa6-4337-862e-d1913a911953",
+		"name": "APIM CLI Scopes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create with wrong scopes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4e79fea8-e8e9-497a-870f-3ff7deee1f3d",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response status is Forbidden\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"",
+							"pm.test(\"Response body is 'Missing necessary scopes.'\", function () {",
+							"    pm.response.to.have.body(\"Missing necessary scopes.\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtleS1pZC0xIn0.eyJzY29wZSI6WyJIdHRwQmluLlJlYWQiXSwiY2lkIjoibXktY2xpZW50LWlkIiwiZ3JhbnRfdHlwZSI6ImF1dGhvcml6YXRpb25fY29kZSIsInVzZXJfaWQiOiJ0ZXN0IiwidXNlcl9uYW1lIjoidGVzdEBleGFtcGxlLmNvbSIsImV4cCI6OTk5OTk5OTk5OX0.j0yrGCksflvfN1hP8vZLqI1IeXuMxmH8BJ2qA7RmKoUu4dT-C_uD9vt0B6VLMAFU6h99oPgsbBiQbN-PEBCxNz7uMuyESzAWK8qWvDWOMIMuAfcNc1MISvG7gjUPG4_m0BQS3hmeIHun8-93uBBPq3atJqNyKb20j5qXc4Xl4wM"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{base-path}}/entities",
+					"host": [
+						"{{base-path}}"
+					],
+					"path": [
+						"entities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create with right scopes via PUT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "68b1c6fa-abed-4c91-8459-01b2b6e5b157",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response status is Ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtleS1pZC0xIn0.eyJzY29wZSI6WyJIdHRwQmluLlJlYWQiLCJIdHRwQmluLkNyZWF0ZSJdLCJjaWQiOiJteS1jbGllbnQtaWQiLCJncmFudF90eXBlIjoiYXV0aG9yaXphdGlvbl9jb2RlIiwidXNlcl9pZCI6InRlc3QiLCJ1c2VyX25hbWUiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiZXhwIjo5OTk5OTk5OTk5fQ.K8NQ9hTmSAOW3jcOUeDO6F91q6gPLY6RIWh-x_LN1XbAD3DL6qtxIvCOKV2kJgKDnx0GFTInlymMWxIwWUrKIoh_WIRHJYpEPLwpIqMYbXIz-8wRCVllehMdJAb8BZsXFSJFcPiS9o1bu5EFCXlfxN58f-fT-Z06Neg__tWTp5k"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{base-path}}/entities/1",
+					"host": [
+						"{{base-path}}"
+					],
+					"path": [
+						"entities",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read with wrong url",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7cda8352-960b-4f1a-9180-22fc90d5801d",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response status is Forbidden\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"",
+							"pm.test(\"Response body is 'Missing necessary scopes.'\", function () {",
+							"    pm.response.to.have.body(\"Missing necessary scopes.\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtleS1pZC0xIn0.eyJzY29wZSI6WyJIdHRwQmluLlJlYWQiXSwiY2lkIjoibXktY2xpZW50LWlkIiwiZ3JhbnRfdHlwZSI6ImF1dGhvcml6YXRpb25fY29kZSIsInVzZXJfaWQiOiJ0ZXN0IiwidXNlcl9uYW1lIjoidGVzdEBleGFtcGxlLmNvbSIsImV4cCI6OTk5OTk5OTk5OX0.j0yrGCksflvfN1hP8vZLqI1IeXuMxmH8BJ2qA7RmKoUu4dT-C_uD9vt0B6VLMAFU6h99oPgsbBiQbN-PEBCxNz7uMuyESzAWK8qWvDWOMIMuAfcNc1MISvG7gjUPG4_m0BQS3hmeIHun8-93uBBPq3atJqNyKb20j5qXc4Xl4wM"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{base-path}}/different/url",
+					"host": [
+						"{{base-path}}"
+					],
+					"path": [
+						"different",
+						"url"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create with right scopes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "68b1c6fa-abed-4c91-8459-01b2b6e5b157",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response status is Ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtleS1pZC0xIn0.eyJzY29wZSI6WyJIdHRwQmluLlJlYWQiLCJIdHRwQmluLkNyZWF0ZSJdLCJjaWQiOiJteS1jbGllbnQtaWQiLCJncmFudF90eXBlIjoiYXV0aG9yaXphdGlvbl9jb2RlIiwidXNlcl9pZCI6InRlc3QiLCJ1c2VyX25hbWUiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiZXhwIjo5OTk5OTk5OTk5fQ.K8NQ9hTmSAOW3jcOUeDO6F91q6gPLY6RIWh-x_LN1XbAD3DL6qtxIvCOKV2kJgKDnx0GFTInlymMWxIwWUrKIoh_WIRHJYpEPLwpIqMYbXIz-8wRCVllehMdJAb8BZsXFSJFcPiS9o1bu5EFCXlfxN58f-fT-Z06Neg__tWTp5k"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{base-path}}/entities",
+					"host": [
+						"{{base-path}}"
+					],
+					"path": [
+						"entities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read with malformed token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "24958b6f-58c3-46ec-b4bf-9d08498601e7",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response status is Forbidden\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"",
+							"pm.test(\"Response body is 'OAuth token missing or malformed.'\", function () {",
+							"    pm.response.to.have.body(\"OAuth token missing or malformed.\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer somerandomstring"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{base-path}}/entities/1",
+					"host": [
+						"{{base-path}}"
+					],
+					"path": [
+						"entities",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read with right scopes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "68b1c6fa-abed-4c91-8459-01b2b6e5b157",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response status is Ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtleS1pZC0xIn0.eyJzY29wZSI6WyJIdHRwQmluLlJlYWQiXSwiY2lkIjoibXktY2xpZW50LWlkIiwiZ3JhbnRfdHlwZSI6ImF1dGhvcml6YXRpb25fY29kZSIsInVzZXJfaWQiOiJ0ZXN0IiwidXNlcl9uYW1lIjoidGVzdEBleGFtcGxlLmNvbSIsImV4cCI6OTk5OTk5OTk5OX0.j0yrGCksflvfN1hP8vZLqI1IeXuMxmH8BJ2qA7RmKoUu4dT-C_uD9vt0B6VLMAFU6h99oPgsbBiQbN-PEBCxNz7uMuyESzAWK8qWvDWOMIMuAfcNc1MISvG7gjUPG4_m0BQS3hmeIHun8-93uBBPq3atJqNyKb20j5qXc4Xl4wM"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{base-path}}/entities/1",
+					"host": [
+						"{{base-path}}"
+					],
+					"path": [
+						"entities",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search with no scopes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b6be4361-3b2e-43f9-b738-00444fc9ecc4",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response status is Forbidden\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"",
+							"pm.test(\"Response body is 'Missing necessary scopes.'\", function () {",
+							"    pm.response.to.have.body(\"Missing necessary scopes.\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtleS1pZC0xIn0.eyJzY29wZSI6W10sImNpZCI6Im15LWNsaWVudC1pZCIsImdyYW50X3R5cGUiOiJhdXRob3JpemF0aW9uX2NvZGUiLCJ1c2VyX2lkIjoidGVzdCIsInVzZXJfbmFtZSI6InRlc3RAZXhhbXBsZS5jb20iLCJleHAiOjk5OTk5OTk5OTl9.JYzAStpQAgwC61H0smo58VkZoUKnGoQX6eRgHWOl1sMUvmgVej7DvrcLAo3jVlFZdn1sW8Ry5bzBjKGByx-s0DNdzEz-pJw5bA8qrzaBTTHntxmg8bWaJ2C7sjjs6W8bWawiuHwpVqJWF0CzxklJAyhs3JPAH5NFMcJChcCGbas"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{base-path}}/entities/search",
+					"host": [
+						"{{base-path}}"
+					],
+					"path": [
+						"entities",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search with right scopes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "68b1c6fa-abed-4c91-8459-01b2b6e5b157",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response status is Ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtleS1pZC0xIn0.eyJzY29wZSI6WyJIdHRwQmluLlJlYWQiXSwiY2lkIjoibXktY2xpZW50LWlkIiwiZ3JhbnRfdHlwZSI6ImF1dGhvcml6YXRpb25fY29kZSIsInVzZXJfaWQiOiJ0ZXN0IiwidXNlcl9uYW1lIjoidGVzdEBleGFtcGxlLmNvbSIsImV4cCI6OTk5OTk5OTk5OX0.j0yrGCksflvfN1hP8vZLqI1IeXuMxmH8BJ2qA7RmKoUu4dT-C_uD9vt0B6VLMAFU6h99oPgsbBiQbN-PEBCxNz7uMuyESzAWK8qWvDWOMIMuAfcNc1MISvG7gjUPG4_m0BQS3hmeIHun8-93uBBPq3atJqNyKb20j5qXc4Xl4wM"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{base-path}}/entities/search",
+					"host": [
+						"{{base-path}}"
+					],
+					"path": [
+						"entities",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read with no scopes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ff5cae0a-a379-4e57-b8b7-7446e01396db",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response status is Forbidden\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"",
+							"pm.test(\"Response body is 'Missing necessary scopes.'\", function () {",
+							"    pm.response.to.have.body(\"Missing necessary scopes.\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtleS1pZC0xIn0.eyJzY29wZSI6W10sImNpZCI6Im15LWNsaWVudC1pZCIsImdyYW50X3R5cGUiOiJhdXRob3JpemF0aW9uX2NvZGUiLCJ1c2VyX2lkIjoidGVzdCIsInVzZXJfbmFtZSI6InRlc3RAZXhhbXBsZS5jb20iLCJleHAiOjk5OTk5OTk5OTl9.JYzAStpQAgwC61H0smo58VkZoUKnGoQX6eRgHWOl1sMUvmgVej7DvrcLAo3jVlFZdn1sW8Ry5bzBjKGByx-s0DNdzEz-pJw5bA8qrzaBTTHntxmg8bWaJ2C7sjjs6W8bWawiuHwpVqJWF0CzxklJAyhs3JPAH5NFMcJChcCGbas"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{base-path}}/entities/1",
+					"host": [
+						"{{base-path}}"
+					],
+					"path": [
+						"entities",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read without token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "24958b6f-58c3-46ec-b4bf-9d08498601e7",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Response status is Forbidden\", function () {",
+							"    pm.response.to.have.status(403);",
+							"});",
+							"",
+							"pm.test(\"Response body is 'OAuth token missing or malformed.'\", function () {",
+							"    pm.response.to.have.body(\"OAuth token missing or malformed.\");",
+							"});",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImtleS1pZC0xIn0.eyJzY29wZSI6W10sImNpZCI6Im15LWNsaWVudC1pZCIsImdyYW50X3R5cGUiOiJhdXRob3JpemF0aW9uX2NvZGUiLCJ1c2VyX2lkIjoidGVzdCIsInVzZXJfbmFtZSI6InRlc3RAZXhhbXBsZS5jb20iLCJleHAiOjk5OTk5OTk5OTl9.JYzAStpQAgwC61H0smo58VkZoUKnGoQX6eRgHWOl1sMUvmgVej7DvrcLAo3jVlFZdn1sW8Ry5bzBjKGByx-s0DNdzEz-pJw5bA8qrzaBTTHntxmg8bWaJ2C7sjjs6W8bWawiuHwpVqJWF0CzxklJAyhs3JPAH5NFMcJChcCGbas",
+						"disabled": true
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{base-path}}/entities/1",
+					"host": [
+						"{{base-path}}"
+					],
+					"path": [
+						"entities",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

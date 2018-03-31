@@ -1,0 +1,5 @@
+<ExtractVariables async="true" continueOnError="false" enabled="true" xmlns='http://www.sap.com/apimgmt'>
+	<Header name="authorization">
+	    <Pattern ignoreCase="true">Bearer {ro.spet.token}</Pattern>
+	</Header>
+</ExtractVariables>

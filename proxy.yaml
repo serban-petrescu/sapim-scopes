@@ -1,0 +1,25 @@
+proxy:
+  name: oauth-http-bin
+  path: ./src/
+  templated: false
+maps:
+  oauth-http-bin:
+    specs:
+    - scope: HttpBin.Read
+      exact: true
+      patterns:
+      - verb: GET
+        url: ^/entities/?.*$
+        exact: false
+      - verb: POST
+        url: /entities/search
+        exact: true
+    - scope: HttpBin.Create
+      exact: true
+      patterns:
+      - verb: POST
+        url: /entities
+        exact: true
+      - verb: PUT
+        url: ^/entities/.+$
+        exact: false

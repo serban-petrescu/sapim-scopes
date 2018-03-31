@@ -1,0 +1,11 @@
+<RaiseFault async="true" continueOnError="false" enabled="true" xmlns="http://www.sap.com/apimgmt">
+	<FaultResponse>
+		<Set>
+			<Headers/>
+			<Payload contentType="text/plain">{ro.spet.content}</Payload>
+            <StatusCode>{ro.spet.code}</StatusCode>
+			<ReasonPhrase>{ro.spet.phrase}</ReasonPhrase>
+		</Set>
+	</FaultResponse>
+	<IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

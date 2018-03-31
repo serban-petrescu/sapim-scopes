@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndPoint default="true">
+    <name>default</name>
+    <base_path>/httpbin/oauth</base_path>
+    <properties/>
+    <routeRules>
+        <routeRule>
+            <name>default</name>
+            <sequence>1</sequence>
+            <faultRules/>
+        </routeRule>
+    </routeRules>
+    <faultRules/>
+    <preFlow>
+        <name>PreFlow</name>
+        <request>
+            <isRequest>true</isRequest>
+            <steps>
+                <step>
+                    <policy_name>readSpecs</policy_name>
+                    <condition></condition>
+                    <sequence>1</sequence>
+                </step>
+                <step>
+                    <policy_name>extractToken</policy_name>
+                    <condition></condition>
+                    <sequence>2</sequence>
+                </step>
+                <step>
+                    <policy_name>checkScopes</policy_name>
+                    <condition></condition>
+                    <sequence>3</sequence>
+                </step>
+                <step>
+                    <policy_name>raiseFault</policy_name>
+                    <condition>ro.spet.code != null</condition>
+                    <sequence>4</sequence>
+                </step>
+            </steps>
+        </request>
+    </preFlow>
+    <postFlow>
+        <name>PostFlow</name>
+    </postFlow>
+    <conditionalFlows/>
+</ProxyEndPoint>
